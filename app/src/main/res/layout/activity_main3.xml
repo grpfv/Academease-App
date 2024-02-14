@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity3"
+    android:background="#EFF0EE">
+
+
+    <ImageView
+        android:id="@+id/backbutton"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:onClick="buttonCLick"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbutton"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/imageViewprofile"
+        android:layout_width="182dp"
+        android:layout_height="166dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/upload_Photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPLOAD PROFILE"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewprofile" />
+
+
+    <Button
+        android:id="@+id/signupbut"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/buttonbg"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:text="SIGN UP"
+        android:textColor="#FFF2D8"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/loginstead"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/loginstead"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="Already have an account? Log In"
+        android:textColor="#113946"
+        android:textSize="17sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/boxusername"
+        android:layout_width="294dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textboxbg"
+        android:gravity="center"
+        android:hint="Email"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxfirstname"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/boxfirstname"
+        android:layout_width="145dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/textboxbg"
+        android:gravity="center"
+        android:hint="First Name"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/boxlastname"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upload_Photo"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/boxlastname"
+        android:layout_width="145dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/textboxbg"
+        android:gravity="center"
+        android:hint="Last Name"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/boxfirstname"
+        app:layout_constraintTop_toBottomOf="@+id/upload_Photo"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/boxyearlevel"
+        android:layout_width="292dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textboxbg"
+        android:gravity="center"
+        android:hint="Year Level"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxpassword"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/boxpassword"
+        android:layout_width="294dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textboxbg"
+        android:gravity="center"
+        android:hint="Password"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxusername"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/showHidePasswordButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:padding="5dp"
+        android:text="SHOW"
+        android:textColor="#113946"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/boxpassword"
+        app:layout_constraintEnd_toEndOf="@+id/boxpassword"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="@+id/boxpassword" />
+
+
+    <EditText
+        android:id="@+id/boxage"
+        android:layout_width="143dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/textboxbg"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="Age"
+        android:paddingVertical="8dp"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/boxBirthDate"
+        app:layout_constraintTop_toBottomOf="@+id/boxschoolname"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/boxBirthDate"
+        android:layout_width="143dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/textboxbg"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="Birthdate"
+        android:inputType="date"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/boxage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxschoolname"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/calendarIcon"
+        android:layout_width="25dp"
+        android:layout_height="29dp"
+        android:layout_marginEnd="112dp"
+        android:clickable="true"
+        android:onClick="buttonClick"
+        app:layout_constraintBottom_toBottomOf="@+id/boxBirthDate"
+        app:layout_constraintEnd_toEndOf="@+id/boxBirthDate"
+        app:layout_constraintTop_toTopOf="@+id/boxBirthDate"
+        app:layout_constraintVertical_bias="0.533"
+        app:srcCompat="@drawable/calendar"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/boxschoolname"
+        android:layout_width="291dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/textboxbg"
+        android:gravity="center"
+        android:hint="School Name"
+        android:textColor="#113946"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boxyearlevel"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543"
+        android:elevation="10dp"
+        android:visibility="gone"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
