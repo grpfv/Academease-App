@@ -107,7 +107,8 @@ public class Schedule extends AppCompatActivity {
 
         selectedButton.setTextColor(ContextCompat.getColor(this, R.color.clicked_text_color));
         // Set background color for the selected day button
-        selectedButton.setBackgroundColor(ContextCompat.getColor(this, R.color.selected_button_color));
+
+        selectedButton.setBackgroundResource(R.drawable.btnbg);
 
         setupRecyclerView(selectedButton.getText().toString());
     }
@@ -143,7 +144,7 @@ public class Schedule extends AppCompatActivity {
 
         for (Button button : dayButtons) {
             // Reset background color for all day buttons
-            button.setBackgroundColor(ContextCompat.getColor(this, android.R.color.white));
+            button.setBackgroundResource(R.drawable.rounded_corner2);
 
             // Reset text color for all day buttons
             button.setTextColor(ContextCompat.getColor(this, android.R.color.black));
