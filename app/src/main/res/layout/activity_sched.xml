@@ -252,7 +252,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EDIT"
-            android:backgroundTint="#113946"
+            android:background="@drawable/btnbg"
             android:visibility="gone"
             android:textColor="@color/white"/>
 
@@ -262,7 +262,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="DELETE"
-            android:backgroundTint="#113946"
+           android:background="@drawable/btnbg"
             android:visibility="gone"
             android:textColor="@color/white"/>
     </LinearLayout>
