@@ -194,12 +194,11 @@
         android:id="@+id/RemindMeBefore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/cardDueTime"
         android:layout_marginTop="24dp"
         android:text="Remind Me Before"
         android:textColor="@color/black"
-        android:textSize="17sp"
-        android:layout_below="@id/cardDueTime"
-        />
+        android:textSize="17sp" />
 
     <LinearLayout
         android:id="@+id/Reminder"
@@ -248,15 +247,15 @@
     <!-- Add to Timetable Button -->
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/Reminder"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="16dp"
         android:text="Add in To-Do List"
-        android:backgroundTint="#113946"
-        android:textColor="#CCC9A6"/>
+        android:background="@drawable/btnbg"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
