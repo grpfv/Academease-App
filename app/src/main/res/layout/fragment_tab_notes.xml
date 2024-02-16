@@ -25,7 +25,6 @@
         android:id="@+id/add_note_btn"
         android:layout_width="82dp"
         android:layout_height="160dp"
-
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="40dp"
@@ -35,7 +34,7 @@
         android:backgroundTint="@color/selected_button_color"
         android:contentDescription="@string/add_a_caption"
         android:src="@drawable/add_button"
-        app:tint="@color/mocha" />
+        app:tint="@color/white"/>
 
     <!--app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
     <!--app:spanCount="2"-->

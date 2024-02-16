@@ -1,6 +1,7 @@
 package com.example.acdms_profile;
 
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,7 +54,10 @@ public class CourseActivity extends DialogFragment {
         }
 
         if(isDeleteMode){
-            instrucCourse.setText("DETELE COURSE?");
+            instrucCourse.setText("DELETE COURSE?");
+            instrucCourse.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28);
+            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) instrucCourse.getLayoutParams();
+            layoutParams.topMargin = 15;
             btnAdd.setVisibility(View.GONE);
             btnDelete.setVisibility(View.VISIBLE);
             btnDelete.setOnClickListener(v->deleteCourseToFirebase());

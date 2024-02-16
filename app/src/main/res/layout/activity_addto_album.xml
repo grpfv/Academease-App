@@ -1,114 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#00BCA37F"
     tools:context=".AddtoAlbum">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:backgroundTint="#00BCA37F"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/upload_image"
+        android:textColor="@color/academease"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RelativeOverlap" />
 
-        <TextView
-            android:id="@+id/page_title"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAlbum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="#00BCA37F"
+        app:layout_constraintBottom_toTopOf="@+id/cardCaption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/page_title">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_gravity="center"
-            android:baselineAligned="false"
-            android:gravity="center"
-            android:paddingTop="40dp"
-            android:text="@string/upload_image"
-            android:textColor="@color/academease"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            tools:ignore="RelativeOverlap" />
+            android:indeterminateTint="#113946"
+            android:visibility="gone" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardAlbum"
-            android:layout_width="375dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="0.1"
-            android:backgroundTint="#00BCA37F">
+        <ImageView
+            android:id="@+id/uploadImage"
+            android:layout_width="match_parent"
+            android:layout_height="414dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/uploadimage"
+            android:scaleType="centerInside"
+            android:src="@drawable/imageg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="508dp"
-                android:layout_marginBottom="100dp"
-                android:backgroundTint="#00BCA37F"
-                android:orientation="horizontal">
+    </androidx.cardview.widget.CardView>
 
-                <ImageView
-                    android:id="@+id/uploadImage"
-                    android:layout_width="372dp"
-                    android:layout_height="514dp"
-                    android:contentDescription="@string/uploadimage"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/imageg"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.504"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.501" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardCaption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="#00FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardAlbum">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent">
 
-            </LinearLayout>
+            <EditText
+                android:id="@+id/enter_Caption"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="3dp"
+                android:background="@drawable/rounded_corner2"
+                android:gravity="center"
+                android:hint="Add a caption"
+                android:importantForAutofill="no"
+                android:inputType="none"
+                app:layout_constraintEnd_toStartOf="@+id/uploadButton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="192dp"
-                android:layout_height="201dp"
-                android:layout_gravity="center"
-                android:indeterminateTint="@color/colorhint"
-                android:visibility="invisible" />
-
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardCaption"
-            android:layout_width="376dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="18dp"
-            app:cardBackgroundColor="#00FFFFFF">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/uploadButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/academease"
+                android:contentDescription="@string/add_album"
+                android:src="@drawable/send_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/enter_Caption"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/enter_Caption"
-                    android:layout_width="360dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0.6"
-                    android:background="@drawable/border"
-                    android:baselineAligned="false"
-                    android:hint="@string/add_a_caption"
-                    android:importantForAutofill="no"
-                    android:inputType="none" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/uploadButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:backgroundTint="@color/selected_button_color"
-                    android:contentDescription="@string/add_album"
-                    android:src="@drawable/send_button"
-                    app:tint="@color/mocha"
-                    tools:ignore="DuplicateSpeakableTextCheck" />
-
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

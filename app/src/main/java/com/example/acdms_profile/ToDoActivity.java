@@ -87,7 +87,7 @@ public class ToDoActivity extends DialogFragment {
         addRemindTime.setText(editremindTime);
 
         if(isEditMode){
-            editTask.setText("EDIT SCHEDULE");
+            editTask.setText("EDIT TASK");
 
             btnAdd.setVisibility(View.GONE);
             btnEdit.setVisibility(View.VISIBLE);

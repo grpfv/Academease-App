@@ -22,7 +22,7 @@
         android:backgroundTint="@color/academease"
         android:contentDescription="@string/add_album"
         android:src="@drawable/add_button"
-        app:tint="@color/mocha"
+        app:tint="@color/white"
         tools:ignore="DuplicateSpeakableTextCheck,RelativeOverlap" />
 
     <GridView
@@ -31,8 +31,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginHorizontal="15dp"
         android:gravity="center"
         android:numColumns="3" />
 </RelativeLayout>

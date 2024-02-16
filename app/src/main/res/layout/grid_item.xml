@@ -6,46 +6,55 @@
     android:orientation="vertical"
     android:layout_width="160dp"
     android:layout_height="wrap_content"
-    android:padding="5dp"
+    android:paddingBottom="100dp"
+    android:layout_marginBottom="50dp"
     android:gravity="center"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="16dp"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="2dp">
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="13dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardView"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="155dp"
+        android:layout_height="200dp"
         app:cardElevation="10dp"
+        android:background="#113946"
+        android:paddingHorizontal="18dp"
         app:layout_constraintBottom_toTopOf="@+id/gridImage"
         app:layout_constraintTop_toTopOf="@+id/gridImage">
 
         <ImageView
             android:id="@+id/gridImage"
-            android:layout_width="147dp"
+            android:layout_width="155dp"
             android:layout_height="155dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginEnd="1dp"
-            android:paddingHorizontal="2dp"
-            android:paddingVertical="2dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/gridCaption"
+            android:layout_width="81dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
+            android:text="Captions"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gridImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/gridCaption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="Captions"
-        android:textColor="@color/academease"
-        android:textSize="14sp" />
 
 </LinearLayout>

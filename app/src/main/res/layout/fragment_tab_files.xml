@@ -44,7 +44,7 @@
        android:backgroundTint="@color/selected_button_color"
        android:contentDescription="@string/add_album"
        android:src="@drawable/add_button"
-       app:tint="@color/mocha"
+       app:tint="@color/white"
        tools:ignore="DuplicateSpeakableTextCheck,RelativeOverlap" />
 
 

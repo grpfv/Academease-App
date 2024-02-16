@@ -84,8 +84,8 @@ public class ToDoAdapter extends FirestoreRecyclerAdapter<ToDoModel, ToDoAdapter
 
             // Create a Bundle to pass arguments
             Bundle args = new Bundle();
-            String todoId = this.getSnapshots().getSnapshot(position).getId();
-            args.putString("todoId", todoId);
+            String taskId = this.getSnapshots().getSnapshot(position).getId();
+            args.putString("taskId", taskId);
             args.putString("title", title);
             args.putString("subject", subject);
             args.putString("dueDay", dueDay);

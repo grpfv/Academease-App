@@ -2,4 +2,6 @@
 <resources>
     <dimen name="imageView2_width">114dp</dimen>
     <dimen name="imageView2_height">108dp</dimen>
+    <dimen name="spacing">8dp</dimen>
+    <dimen name="spacing2">16dp</dimen>
 </resources>

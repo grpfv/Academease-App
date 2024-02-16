@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#EFF0EE"
     android:padding="16dp"
     tools:context=".Courses">
@@ -11,30 +12,41 @@
         android:id="@+id/classCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:text="COURSES"
         android:textColor="#113946"
-        android:textStyle="bold"
         android:textSize="34sp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"/>
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/launchCoursesButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/add"
+        android:layout_width="60dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="13dp"
         android:background="@android:color/transparent"
         android:scaleType="centerInside"
-        android:layout_alignParentEnd="true"/>
+        android:src="@drawable/add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/classCourse"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        android:padding="12dp"
+        android:layout_marginTop="70dp"
         android:clipToPadding="false"
-        android:layout_below="@+id/classCourse"/>
+        android:padding="12dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/classCourse"
+        app:spanCount="2" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

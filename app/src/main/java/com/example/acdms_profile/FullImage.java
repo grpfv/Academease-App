@@ -29,7 +29,6 @@ public class FullImage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_image);
         fullImageView = findViewById(R.id.fullImageView);
-        deleteIcon = findViewById(R.id.deletepngbutton);
 
         String imageUrl = getIntent().getStringExtra("imageUrl");
 

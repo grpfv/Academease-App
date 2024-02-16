@@ -4,20 +4,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center">
-    
+
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:src="@drawable/folder" />
+
     <TextView
         android:id="@+id/course_Subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Subject Title"
-        android:maxLines="3"
         android:ellipsize="end"
-        android:textSize="17sp"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:maxLines="3"
+        android:text="Subject Title"
+        android:textColor="#113946"
+        android:textSize="17sp" />
 
 
 </LinearLayout>

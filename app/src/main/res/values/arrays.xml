@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="days_array">
-        <item>Sunday</item>
-        <item>Monday</item>
-        <item>Tuesday</item>
-        <item>Wednesday</item>
-        <item>Thursday</item>
-        <item>Friday</item>
-        <item>Saturday</item>
+        <item><font color="#113946">Sunday</font></item>
+        <item><font color="#113946">Monday</font></item>
+        <item><font color="#113946">Tuesday</font></item>
+        <item><font color="#113946">Wednesday</font></item>
+        <item><font color="#113946">Thursday</font></item>
+        <item><font color="#113946">Friday</font></item>
+        <item><font color="#113946">Saturday</font></item>
     </string-array>
 </resources>

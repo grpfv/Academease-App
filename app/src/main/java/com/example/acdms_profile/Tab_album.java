@@ -41,6 +41,8 @@ public class Tab_album extends Fragment {
         courseId = getCourseId(requireContext()); // Retrieve courseId
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,6 +53,7 @@ public class Tab_album extends Fragment {
         dataList = new ArrayList<>();
         adapter = new AlbumAdapter(requireContext(), dataList);
         gridView.setAdapter(adapter);
+
 
         // Set long click listener for item deletion
         gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

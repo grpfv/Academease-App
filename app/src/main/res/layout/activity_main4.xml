@@ -199,7 +199,7 @@
 
     <View
         android:id="@+id/sectionBox"
-        android:layout_width="377dp"
+        android:layout_width="350dp"
         android:layout_height="59dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/buttonbg"
@@ -224,7 +224,7 @@
 
     <View
         android:id="@+id/sectionBox2"
-        android:layout_width="377dp"
+        android:layout_width="350dp"
         android:layout_height="59dp"
         android:layout_marginTop="6dp"
         android:layout_marginBottom="12dp"
@@ -250,7 +250,7 @@
 
     <View
         android:id="@+id/sectionBox4"
-        android:layout_width="377dp"
+        android:layout_width="350dp"
         android:layout_height="59dp"
         android:layout_marginBottom="112dp"
         android:background="@drawable/buttonbg"
