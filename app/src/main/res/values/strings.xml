@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">ACDMS -PROFILE</string>
+    <string name="album">Album</string>
+    <string name="notes">Notes</string>
+    <string name="files">Files</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_album">addalbum\n</string>
+    <string name="img">image\n</string>
+    <string name="backbutton">backbutt\n</string>
+    <string name="add_a_caption">add a caption</string>
+    <string name="uploadimage">uploadimg</string>
+    <string name="day_time_in_time_out">DAY | TIME IN - TIME OUT</string>
+    <string name="edit">edit</string>
+    <string name="notestitle">NOTES</string>
+    <string name="delete_note">DELETE NOTE</string>
+    <string name="notescontent">Content</string>
+    <string name="notetitle">Title</string>
+    <string name="notespagetitile">ADD NOTES</string>
+    <string name="savenotebtn">TODO</string>
+    <string name="selecet_file">selecet file</string>
+    <string name="upload_file">upload file</string>
+    <string name="retrieve_files">retrieve files</string>
+    <string name="enter_file_name">enter file name</string>
+    <string name="upload_filetxt">Upload file</string>
+    <string name="upload">Upload</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="scan">scan</string>
+    <string name="delete_notes">DELETE NOTE</string>
+    <string name="title">Title</string>
+    <string name="add_notes">ADD NOTES</string>
+    <string name="voicespeak">ch2text</string>
+    <string name="deletent">delte noe</string>
+    <string name="mic">mic</string>
+    <string name="add_title">Add Title</string>
+    <string name="savenotebtt">ADD</string>
 </resources>

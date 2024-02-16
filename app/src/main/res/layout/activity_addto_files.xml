@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddtoFiles">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="-6dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="-12dp"
+        android:layout_marginBottom="157dp">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/text_pdf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="639dp"
+        android:gravity="center"
+        android:text="@string/upload_filetxt"
+        android:textColor="@color/academease"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/upload_btn"
+        android:layout_width="96dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="303dp"
+        android:layout_marginTop="165dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/buttonbg"
+        android:padding="18dp"
+        android:text="@string/upload"
+        android:textColor="@color/mocha" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/name"
+        android:layout_width="284dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="167dp"
+        android:layout_marginEnd="115dp"
+        android:background="@drawable/textboxbg"
+        android:hint="@string/enter_file_name"
+        android:padding="10dp"
+        android:textColor="@color/academease"
+        android:textColorHint="#C1292929"
+        android:textSize="22sp"
+        tools:ignore="TextSizeCheck">
+
+    </com.google.android.material.textfield.TextInputEditText>
+</RelativeLayout>
