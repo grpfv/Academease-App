@@ -10,16 +10,17 @@
 
     <Button
         android:id="@+id/editButton"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="112dp"
+        android:layout_height="39dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="293dp"
         android:layout_marginEnd="23dp"
         android:background="@drawable/btnbg"
-        android:text="EDIT"
-        android:textAlignment="center"
         android:textColor="@color/white"
+        android:text="@string/edit"
+        android:textAlignment="center"
+
         android:textSize="14sp"
         app:backgroundTint="@null"
         app:cornerRadius="10dp"
@@ -45,11 +46,10 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#113946"
-        android:textSize="38sp"
+        android:textSize="34sp"
         android:textStyle="bold"
         android:typeface="normal"
         android:visibility="visible"
-        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -61,29 +61,100 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/classSchedule"
+        android:id="@+id/addschedDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/day_time_in_time_out"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/addInstructor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.288"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="Deprecated,MissingConstraints,NotSibling"
+        tools:text="DAY"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/addEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/day_time_in_time_out"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/addInstructor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="Deprecated,MissingConstraints,NotSibling"
+        tools:text="TIME OUT"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/addStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:editable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="@string/day_time_in_time_out"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/addInstructor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.549"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991"
+        tools:ignore="Deprecated,MissingConstraints,NotSibling"
+        tools:text="TIME IN "
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/addInstructor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="10dp"
         android:editable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="@string/day_time_in_time_out"
-        android:textColor="#3A5D69"
+        android:text="INSTRUCTOR"
         android:textSize="16sp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/Instructor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.807"
-        tools:ignore="Deprecated,MissingConstraints,NotSibling"
-        tools:text="DAY | TIME IN - TIME OUT"
+        app:layout_constraintVertical_bias="0.218"
+        tools:ignore="Deprecated,DuplicateIds,HardcodedText,MissingConstraints,NotSibling,RelativeOverlap"
+        tools:text="INSTRUCTOR"
         tools:visibility="visible" />
 
     <ImageView
@@ -96,10 +167,10 @@
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.166"
+        app:layout_constraintVertical_bias="0.17"
         app:srcCompat="@drawable/time"
         app:tint="#BCA37F"
         tools:ignore="ImageContrastCheck,MissingConstraints" />
@@ -113,39 +184,13 @@
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209"
+        app:layout_constraintVertical_bias="0.22"
         app:srcCompat="@drawable/user"
         app:tint="#BCA37F"
         tools:ignore="ImageContrastCheck,MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Instructor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:editable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="INSTRUCTOR"
-        android:textColor="#3A5D69"
-        android:textSize="16sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208"
-        tools:ignore="Deprecated,DuplicateIds,HardcodedText,MissingConstraints,NotSibling,RelativeOverlap"
-        tools:text="INSTRUCTOR"
-        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -158,32 +203,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
             android:layout_width="411dp"
             android:layout_height="550dp"
-            android:background="#E8DCCB"
-            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="16dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.57"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.6">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
-                android:layout_width="411dp"
-                android:layout_height="550dp"
-                android:layout_marginEnd="18dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </androidx.viewpager2.widget.ViewPager2>
-        </LinearLayout>
+        </androidx.viewpager2.widget.ViewPager2>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

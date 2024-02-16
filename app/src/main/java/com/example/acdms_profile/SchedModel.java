@@ -4,8 +4,16 @@ public class SchedModel {
     String schedSubject;
     String day;
     String subjectTime;
+    String instructor;
 
     public SchedModel() {
+    }
+
+    public SchedModel(String schedSubject, String day, String subjectTime, String instructor) {
+        this.schedSubject = schedSubject;
+        this.day = day;
+        this.subjectTime = subjectTime;
+        this.instructor = instructor;
     }
 
     public String getSchedSubject() {
@@ -32,6 +40,14 @@ public class SchedModel {
         this.subjectTime = startTime;
     }
 
+    public String getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(String instructor) {
+        this.instructor = instructor;
+    }
+
     // New methods to get start and end times separately
     public String getStartTime() {
         if (subjectTime != null && subjectTime.contains(" - ")) {
@@ -49,4 +65,3 @@ public class SchedModel {
 
 
 }
-

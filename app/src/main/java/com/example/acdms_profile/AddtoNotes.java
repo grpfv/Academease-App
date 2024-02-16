@@ -45,8 +45,8 @@ public class AddtoNotes extends AppCompatActivity {
 
     EditText titleEditText, contentEditText;
     Button saveNoteBtn;
-    TextView pageTitleText, deleteNoteBtn;
-    ImageView micImageView, cameraImageView;
+    TextView pageTitleText;
+    ImageView micImageView, cameraImageView, deleteNoteBtn;
 
     TextRecognizer textRecognizer;
     Uri imageUri;
@@ -192,7 +192,10 @@ public class AddtoNotes extends AppCompatActivity {
             if (resultCode == RESULT_OK && null != data) {
                 ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 if (result != null && !result.isEmpty()) {
-                    contentEditText.setText(result.get(0));
+                    String currentContent = contentEditText.getText().toString();
+                    String recognizedText = result.get(0);
+                    String updatedContent = currentContent + " " + recognizedText;
+                    contentEditText.setText(updatedContent);
                 }
             }
         } else if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK && data != null) {
@@ -208,9 +211,11 @@ public class AddtoNotes extends AppCompatActivity {
                 Task<Text> result = textRecognizer.process(inputImage).addOnSuccessListener(new OnSuccessListener<Text>() {
                     @Override
                     public void onSuccess(Text text) {
+                        String currentContent = contentEditText.getText().toString();
                         String recognizedText = text.getText();
                         recognizedText = recognizedText.replace("\n", " ");
-                        contentEditText.setText(recognizedText);
+                        String updatedContent = currentContent + " " + recognizedText;
+                        contentEditText.setText(updatedContent);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override

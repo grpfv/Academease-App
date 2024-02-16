@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class CourseAdapter extends FirestoreRecyclerAdapter<CourseModel, CourseA
             Bundle args = new Bundle();
             String courseId = this.getSnapshots().getSnapshot(position).getId();
             args.putString("courseId", courseId);
+            Log.d("CourseID", "COURSEID" + courseId);
 
             // Set the arguments to the fragment
             addCoursesFragment.setArguments(args);
@@ -52,9 +54,14 @@ public class CourseAdapter extends FirestoreRecyclerAdapter<CourseModel, CourseA
             Intent intent = new Intent(context, CourseDetails.class);
             intent.putExtra("subject",course.subject);
             intent.putExtra("instructor", course.instructor);
+            intent.putExtra("endTime", course.endTime);
+            intent.putExtra("startTime", course.startTime);
+            intent.putExtra("schedDay", course.schedDay);
+
 
             String courseId = this.getSnapshots().getSnapshot(position).getId();
-            saveCourseId(context, courseId); // Save courseId
+            saveCourseId(context, courseId);
+            intent.putExtra("courseId", courseId);
             context.startActivity(intent);
         });
     }
@@ -83,4 +90,3 @@ public class CourseAdapter extends FirestoreRecyclerAdapter<CourseModel, CourseA
         }
     }
 }
-
