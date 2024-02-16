@@ -1,6 +1,5 @@
 package com.example.acdms_profile;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,9 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.annotation.NonNull;
-
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -24,40 +21,32 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-
 import java.util.ArrayList;
-
 
 public class AlbumAdapter extends BaseAdapter {
 
-
     private ArrayList<DataClass> dataList;
     private Context context;
-
 
     public AlbumAdapter(Context context, ArrayList<DataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
-
     @Override
     public int getCount() {
         return dataList.size();
     }
-
 
     @Override
     public Object getItem(int i) {
         return dataList.get(i);
     }
 
-
     @Override
     public long getItemId(int i) {
         return i;
     }
-
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
@@ -65,17 +54,13 @@ public class AlbumAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.grid_item, viewGroup, false);
         }
 
-
         ImageView gridImage = view.findViewById(R.id.gridImage);
         TextView gridCaption = view.findViewById(R.id.gridCaption);
-
 
         DataClass item = dataList.get(i);
         gridCaption.setText(item.getCaption());
 
-
         Glide.with(context).load(item.getImageURL()).into(gridImage);
-
 
         // Set single click listener
         view.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +72,6 @@ public class AlbumAdapter extends BaseAdapter {
             }
         });
 
-
         // Set long click listener
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -98,21 +82,17 @@ public class AlbumAdapter extends BaseAdapter {
             }
         });
 
-
         // Enable clickable property
         view.setClickable(true);
 
-
         return view;
     }
-
 
     // Method to show delete confirmation dialog
     private void showDeleteConfirmationDialog(final DataClass itemToDelete) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Delete Item");
         builder.setMessage("Are you sure you want to delete this item?");
-
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -122,11 +102,9 @@ public class AlbumAdapter extends BaseAdapter {
             }
         });
 
-
         builder.setNegativeButton("No", null);
         builder.show();
     }
-
 
     private void deleteItem(DataClass itemToDelete) {
         // Delete item from Firestore
@@ -154,4 +132,3 @@ public class AlbumAdapter extends BaseAdapter {
                 });
     }
 }
-
