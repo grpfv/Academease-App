@@ -112,6 +112,7 @@
                 android:layout_marginStart="8dp"
                 android:focusable="false"
                 android:hint="Enter Start Time"
+                android:minHeight="48dp"
                 android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -194,18 +195,17 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="169dp"
-        android:layout_height="57dp"
+        android:layout_width="171dp"
+        android:layout_height="32dp"
         android:layout_below="@id/cardEndTime"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="178dp"
-        android:layout_marginBottom="149dp"
+        android:layout_marginBottom="174dp"
         android:background="@drawable/btnbg"
         android:backgroundTint="#113946"
-        android:textColor="@color/white"
         android:text="SAVE"
-         />
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
