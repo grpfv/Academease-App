@@ -76,6 +76,7 @@ public class CourseActivity extends DialogFragment {
         String subject = enterSubject.getText().toString();
         String instructor = enterInstructor.getText().toString();
 
+
         if (subject.isEmpty()){
             Toast.makeText(requireContext(), "Please enter Subject", Toast.LENGTH_SHORT).show();
             enterSubject.setError("Subject Name is required");
@@ -90,6 +91,9 @@ public class CourseActivity extends DialogFragment {
         CourseModel course = new CourseModel();
         course.setSubject(subject);
         course.setInstructor(instructor);
+     /*   course.setendTime(endTime);
+        course.setstartTime(startTime);
+        course.setschedDay(schedDay);*/
         course.setTimestamp(Timestamp.now());
 
         saveCoursesToFirebase(course);

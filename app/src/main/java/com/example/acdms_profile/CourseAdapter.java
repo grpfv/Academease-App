@@ -52,6 +52,10 @@ public class CourseAdapter extends FirestoreRecyclerAdapter<CourseModel, CourseA
             Intent intent = new Intent(context, CourseDetails.class);
             intent.putExtra("subject",course.subject);
             intent.putExtra("instructor", course.instructor);
+            intent.putExtra("endTime", course.endTime);
+            intent.putExtra("startTime", course.startTime);
+            intent.putExtra("schedDay", course.schedDay);
+
 
             String courseId = this.getSnapshots().getSnapshot(position).getId();
             saveCourseId(context, courseId); // Save courseId
