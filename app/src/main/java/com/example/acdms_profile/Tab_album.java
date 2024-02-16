@@ -58,7 +58,7 @@ public class Tab_album extends Fragment {
         fab = view.findViewById(R.id.fab);
         gridView = view.findViewById(R.id.gridView);
         dataList = new ArrayList<>();
-        adapter = new AlbumAdapter(requireContext(), dataList);
+        adapter = new AlbumAdapter(requireContext(), dataList, courseId);
         gridView.setAdapter(adapter);
 
 

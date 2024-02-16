@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,9 +19,13 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class FullImage extends AppCompatActivity {
     private ImageView fullImageView;
+    private Uri imageUri;
+
     Button deleteIcon;
     final private CollectionReference databaseReference = FirebaseFirestore.getInstance().collection("Album");
 
@@ -37,8 +42,15 @@ public class FullImage extends AppCompatActivity {
 
         deleteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                showDeleteConfirmationDialog(imageUrl); // Show confirmation dialog before deleting
+            public void onClick(View view) {
+                if (imageUri != null) {
+                    deleteFromFirebase(imageUri.toString());
+                    // Clear the image view and any other related data after deletion if necessary
+                    fullImageView.setImageResource(android.R.color.transparent); // Clear the image
+                    imageUri = null; // Clear the image URI
+                } else {
+                    Toast.makeText(FullImage.this, "No image to delete", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -75,4 +87,16 @@ public class FullImage extends AppCompatActivity {
                     }
                 });
     }
+
+    private void deleteFromFirebase(String imageUrl) {
+        StorageReference imageRef = FirebaseStorage.getInstance().getReferenceFromUrl(imageUrl);
+        imageRef.delete().addOnSuccessListener(aVoid -> {
+            // File deleted successfully
+            Toast.makeText(FullImage.this, "Image deleted successfully", Toast.LENGTH_SHORT).show();
+        }).addOnFailureListener(exception -> {
+            // Uh-oh, an error occurred!
+            Toast.makeText(FullImage.this, "Failed to delete image", Toast.LENGTH_SHORT).show();
+        });
+    }
+
 }

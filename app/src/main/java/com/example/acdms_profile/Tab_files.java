@@ -1,8 +1,11 @@
     package com.example.acdms_profile;
 
+    import android.app.AlertDialog;
     import android.content.Context;
+    import android.content.DialogInterface;
     import android.content.Intent;
     import android.content.SharedPreferences;
+    import android.net.Uri;
     import android.os.Bundle;
     import android.view.LayoutInflater;
     import android.view.View;
@@ -70,6 +73,14 @@
                 }
             });
 
+            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                    showDeleteConfirmationDialog(position);
+                    return true;
+                }
+            });
+
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -126,12 +137,64 @@
             listView.setAdapter(adapter);
         }
 
+        /* private void loadPDF(String url) {
+             webView.getSettings().setJavaScriptEnabled(true);
+             webView.setVisibility(View.VISIBLE);
+             webView.setWebViewClient(new WebViewClient());
+             webView.loadUrl("https://docs.google.com/gview?embedded=true&url=" + url);
+         }*/
         private void loadPDF(String url) {
-            webView.getSettings().setJavaScriptEnabled(true);
-            webView.setVisibility(View.VISIBLE);
-            webView.setWebViewClient(new WebViewClient());
-            webView.loadUrl("https://docs.google.com/gview?embedded=true&url=" + url);
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setPackage("com.android.chrome"); // Specify the package name of Google Chrome
+
+            if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                // Google Chrome is not installed, open with default browser
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(browserIntent);
+            }
         }
 
+
+        private void showDeleteConfirmationDialog(final int position) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+            builder.setTitle("Delete File");
+            builder.setMessage("Are you sure you want to delete this file?");
+
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    deleteFile(position);
+                }
+            });
+
+            builder.setNegativeButton("No", null);
+            builder.show();
+        }
+
+        private void deleteFile(int position) {
+            FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+            CollectionReference collectionReference = FirebaseFirestore.getInstance()
+                    .collection("Courses")
+                    .document(currentUser.getUid())
+                    .collection("my_Courses")
+                    .document(courseId)
+                    .collection("Files");
+
+            collectionReference.document(uploads.get(position).getUrl()).delete()
+                    .addOnSuccessListener(aVoid -> {
+                        // File deleted successfully
+                        uploads.remove(position);
+                        updateListView();
+                        Toast.makeText(requireContext(), "File deleted", Toast.LENGTH_SHORT).show();
+                    })
+                    .addOnFailureListener(e -> {
+                        // Failed to delete file
+                        Toast.makeText(requireContext(), "Failed to delete file", Toast.LENGTH_SHORT).show();
+                    });
+        }
 
     }
