@@ -3,6 +3,7 @@ package com.example.acdms_profile;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
 import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -11,30 +12,42 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.NumberPicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.Query;
+
+import java.util.Calendar;
 import java.util.Locale;
 
 
 
 public class ToDoActivity extends DialogFragment {
 
-    private EditText addTaskTitle, addSubject, addDueTime, addDueday, addRemindTime, addRemindday;
+    private EditText addTaskTitle, addSubject, addDueTime, addDueday;
     Button btnAdd, btnDelete, btnEdit;
     TextView editTask;
-    String taskId, edittitle, editsubject, editdueDay, editdueTime, editremindDay, editremindTime;
+    String taskId, edittitle, editsubject, editdueDay, editdueTime;
     Boolean isEditMode = false;
     private int taskPosition;
+    NumberPicker numberPicker;
+    RadioGroup radioGroup;
+    RadioButton radioMinutes, radioDays, radioHours;
 
     @Nullable
     @Override
@@ -43,34 +56,35 @@ public class ToDoActivity extends DialogFragment {
 
         addTaskTitle = view.findViewById(R.id.addTask);
         addSubject = view.findViewById(R.id.addSubject);
+        editTask = view.findViewById(R.id.addTasks);
         addDueday = view.findViewById(R.id.addDueday);
         addDueTime = view.findViewById(R.id.addDueTime);
-        editTask = view.findViewById(R.id.addTasks);
 
-        addRemindday = view.findViewById(R.id.addRemindday);
-        addRemindTime = view.findViewById(R.id.addRemindTime);
+        numberPicker = view.findViewById(R.id.numberPicker);
+        radioGroup = view.findViewById(R.id.radioGroup);
+        radioMinutes = view.findViewById(R.id.radioMinutes);
+        radioDays = view.findViewById(R.id.radioDays);
+        radioHours = view.findViewById(R.id.radioHours);
 
         addDueday.setOnClickListener(view1 -> showDatePicker(addDueday));
         addDueTime.setOnClickListener(view12 -> showTimePicker(addDueTime));
-
-        addRemindday.setOnClickListener(view1 -> showDatePicker(addRemindday));
-        addRemindTime.setOnClickListener(view12 -> showTimePicker(addRemindTime));
 
         btnDelete = view.findViewById(R.id.btnDelete);
         btnEdit = view.findViewById(R.id.btnEdit);
         btnAdd = view.findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(v-> saveTask(taskPosition));
 
+        numberPicker.setMinValue(1);
+        numberPicker.setMaxValue(60);
+
 
         Bundle args = getArguments();
         if (args != null) {
             taskId = args.getString("taskId");
-            edittitle=args.getString("title");
+            edittitle = args.getString("title");
             editsubject = args.getString("subject");
-            editdueDay= args.getString("dueDay");
-            editdueTime=args.getString("dueTime");
-            editremindDay=args.getString("remindDay");
-            editremindTime = args.getString("remindTime");
+            editdueDay = args.getString("dueDay");
+            editdueTime = args.getString("dueTime");
             taskPosition = args.getInt("position", -1);
 
         }
@@ -83,11 +97,9 @@ public class ToDoActivity extends DialogFragment {
         addSubject.setText(editsubject);
         addDueday.setText(editdueDay);
         addDueTime.setText(editdueTime);
-        addRemindday.setText(editremindDay);
-        addRemindTime.setText(editremindTime);
 
         if(isEditMode){
-            editTask.setText("EDIT TASK");
+            editTask.setText("EDIT SCHEDULE");
 
             btnAdd.setVisibility(View.GONE);
             btnEdit.setVisibility(View.VISIBLE);
@@ -104,11 +116,21 @@ public class ToDoActivity extends DialogFragment {
     void saveTask(int taskPosition){
         String taskTitle = addTaskTitle.getText().toString();
         String taskSubject= addSubject.getText().toString();
+
         String taskDueday = addDueday.getText().toString();
         String taskDuetime = addDueTime.getText().toString();
 
-        String taskRemindday = addRemindday.getText().toString();
-        String taskRemindtime = addRemindTime.getText().toString();
+        String reminderInterval = String.valueOf(numberPicker.getValue());
+        String timeUnit = "";
+
+        // Determine the selected time unit
+        if (radioMinutes.isChecked()) {
+            timeUnit = "minutes";
+        } else if (radioDays.isChecked()) {
+            timeUnit = "days";
+        } else if (radioHours.isChecked()) {
+            timeUnit = "hours";
+        }
 
         if (taskTitle.isEmpty()){
             Toast.makeText(requireContext(), "Please enter Title", Toast.LENGTH_SHORT).show();
@@ -125,43 +147,33 @@ public class ToDoActivity extends DialogFragment {
             addDueTime.setError("Due Time is required");
             return;
         }
-        if (taskRemindday.isEmpty()){
-            Toast.makeText(requireContext(), "Please enter Remind Day", Toast.LENGTH_SHORT).show();
-            addRemindday.setError("Due Day is required");
-            return;
-        }
-        if (taskRemindtime.isEmpty()){
-            Toast.makeText(requireContext(), "Please enter Remind Time", Toast.LENGTH_SHORT).show();
-            addRemindTime.setError("Due Time is required");
-            return;
-        }
 
-        ToDoModel todomodel = new ToDoModel();
-        todomodel.setTitle(taskTitle);
-        todomodel.setSubject(taskSubject);
-        todomodel.setDueDay(taskDueday);
-        todomodel.setDueTime(taskDuetime);
+        ToDoModel taskmodel = new ToDoModel();
+        taskmodel.setTitle(taskTitle);
+        taskmodel.setSubject(taskSubject);
+        taskmodel.setDueDay(taskDueday);
+        taskmodel.setDueTime(taskDuetime);
 
         String dueDateTime = taskDueday + " " + taskDuetime;
-        todomodel.setDueDateTime(dueDateTime);
+        taskmodel.setDueDateTime(dueDateTime);
 
-        todomodel.setRemindDay(taskRemindday);
-        todomodel.setRemindTime(taskRemindtime);
+        taskmodel.setReminderInterval(reminderInterval);
+        taskmodel.setTimeUnit(timeUnit);
 
-        saveTasktoFirebase(todomodel, taskPosition);
+        saveTasktoFirebase(taskmodel, taskPosition);
 
     }
 
-    void saveTasktoFirebase(ToDoModel todomodel, int taskPosition){
+    void saveTasktoFirebase(ToDoModel taskmodel, int taskPosition){
         DocumentReference documentReference;
 
         if(isEditMode){
             documentReference = Utility.getCollectionReferenceForToDo().document(taskId);
-            cancelAlarmForToDo(taskPosition);
+            cancelAlarmForTask(taskPosition);
         }else{
             documentReference = Utility.getCollectionReferenceForToDo().document();
         }
-        documentReference.set(todomodel).addOnCompleteListener(new OnCompleteListener<Void>() {
+        documentReference.set(taskmodel).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
@@ -185,7 +197,7 @@ public class ToDoActivity extends DialogFragment {
                     Toast.makeText(requireContext(),"Task Deleted",Toast.LENGTH_SHORT).show();
                     dismiss();
 
-                    cancelAlarmForToDo(taskPosition);
+                    cancelAlarmForTask(taskPosition);
                 }else{
                     Toast.makeText(requireContext(),"Failed Deleting Task",Toast.LENGTH_SHORT).show();
                 }
@@ -194,7 +206,7 @@ public class ToDoActivity extends DialogFragment {
 
     }
 
-    void cancelAlarmForToDo(int position) {
+    void cancelAlarmForTask(int position) {
         if (position != -1) {
             AlarmManager alarmManager = (AlarmManager) requireContext().getSystemService(Context.ALARM_SERVICE);
             Intent alarmIntent = new Intent(requireContext(), NotificationReceiver.class);

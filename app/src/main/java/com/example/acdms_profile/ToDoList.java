@@ -26,9 +26,6 @@ public class ToDoList extends AppCompatActivity {
         recyclerView = findViewById(R.id.todorecyclerview);
         ImageButton addTaskButton = findViewById(R.id.addTaskButton);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(ToDoList.this));
-
         addTaskButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)  {
