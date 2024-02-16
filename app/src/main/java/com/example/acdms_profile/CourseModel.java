@@ -6,6 +6,9 @@ public class CourseModel {
 
     String subject;
     String instructor;
+    String endTime;
+    String startTime;
+    String schedDay;
     Timestamp timestamp;
 
     public CourseModel() {
@@ -33,5 +36,28 @@ public class CourseModel {
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getSchedDay() {
+        return schedDay;
+    }
+
+    public void setSchedDay(String schedDay) {
+        this.schedDay = schedDay;
     }
 }
