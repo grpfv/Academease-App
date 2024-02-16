@@ -1,0 +1,144 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#EFF0EE"
+    android:padding="16dp"
+    tools:context=".Schedule">
+
+
+    <TextView
+        android:id="@+id/classSchedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLASS SCHEDULE"
+        android:textColor="#113946"
+        android:textStyle="bold"
+        android:textSize="34sp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"/>
+
+    <ImageButton
+        android:id="@+id/launchScheduleButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_toEndOf="@id/classSchedule"
+        android:src="@drawable/add"
+        android:background="@android:color/transparent"
+        android:layout_alignParentEnd="true"
+        android:scaleType="centerInside"/>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/classSchedule"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/labelSubject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="#113946"
+                android:text="DATE"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dayscrollview"
+        android:layout_below="@id/Date">
+
+        <LinearLayout
+            android:id="@+id/dayButtonsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/sun_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunday"
+                android:backgroundTint="#113946"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/mon_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monday"
+                android:backgroundTint="#113946"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"/>
+            <Button
+                android:id="@+id/tue_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tuesday"
+                android:backgroundTint="#113946"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"/>
+            <Button
+                android:id="@+id/wed_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wednesday"
+                android:backgroundTint="#113946"
+                android:textColor="@color/black"
+                android:layout_marginStart="8dp"/>
+            <Button
+                android:id="@+id/thu_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thursday"
+                android:backgroundTint="#113946"
+                android:textColor="#CCC9A6"
+                android:layout_marginStart="8dp"/>
+            <Button
+                android:id="@+id/fri_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friday"
+                android:backgroundTint="#113946"
+                android:textColor="#CCC9A6"
+                android:layout_marginStart="8dp"/>
+            <Button
+                android:id="@+id/sat_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saturday"
+                android:backgroundTint="#113946"
+                android:textColor="#CCC9A6"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sched_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        android:clipToPadding="false"
+        android:layout_below="@+id/dayscrollview"/>
+
+
+</RelativeLayout>
