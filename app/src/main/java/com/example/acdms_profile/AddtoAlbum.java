@@ -95,6 +95,7 @@ public class AddtoAlbum extends AppCompatActivity {
         DataClass dataClass = new DataClass();
         dataClass.setCaption(caption);
         dataClass.setDocId(newDocRef.getId()); // Set the document ID
+        dataClass.setImageURL(uri.toString()); // Set the image URL directly as the URI string
 
         newDocRef.set(dataClass) // Set the document with the data
                 .addOnSuccessListener(aVoid -> {
@@ -107,4 +108,5 @@ public class AddtoAlbum extends AppCompatActivity {
                     Toast.makeText(AddtoAlbum.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
                 });
     }
+
 }

@@ -47,8 +47,6 @@ public class CourseDetailsActivity extends AppCompatActivity {
         addInstructor = findViewById(R.id.addInstructor);
 
         btnAdd = findViewById(R.id.btnAdd);
-        btnDelete = findViewById(R.id.btnDelete);
-        btnEdit = findViewById(R.id.btnEdit);
 
         addStartTime.setOnClickListener(view -> showTimePicker(addStartTime));
         addEndTime.setOnClickListener(view -> showTimePicker(addEndTime));
@@ -60,6 +58,8 @@ public class CourseDetailsActivity extends AppCompatActivity {
             spinnerPosition = args.getInt("spinnerPosition", 0);
             editstartTime = args.getString("startTime");
             editendTime = args.getString("endTime");
+            addInstructor.setText(args.getString("instructor"));
+
         }
 
         if (schedId != null && !schedId.isEmpty()) {
@@ -69,6 +69,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         addSubject.setText(editschedSubject);
         addStartTime.setText(editstartTime);
         addEndTime.setText(editendTime);
+        addInstructor.setText(args.getString("instructor"));
         spinnerDay.setSelection(spinnerPosition);
 
         if (isEditMode) {
@@ -78,9 +79,8 @@ public class CourseDetailsActivity extends AppCompatActivity {
             btnDelete.setVisibility(View.VISIBLE);
         }
 
-        btnAdd.setOnClickListener(v -> saveSchedule());
-        btnEdit.setOnClickListener(v -> saveSchedule());
-        btnDelete.setOnClickListener(v -> showDeleteConfirmationDialog());
+        btnAdd.setOnClickListener(v-> saveSchedule());
+
     }
 
     void saveSchedule() {
@@ -168,19 +168,4 @@ public class CourseDetailsActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void showDeleteConfirmationDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete Course");
-        builder.setMessage("Are you sure you want to delete this course?");
-
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // Implement delete logic here
-            }
-        });
-
-        builder.setNegativeButton("No", null);
-        builder.show();
-    }
 }

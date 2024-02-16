@@ -19,7 +19,7 @@ public class CourseDetails extends AppCompatActivity {
     private ViewPager2 viewPager;
     private FragmentAdapter adapter;
     Button btnEdit;
-    TextView addSubject, addStartTime, addEndTime;
+    TextView addSubject, addStartTime, addEndTime, addInstructor;
     String editschedSubject, editstartTime, editendTime;
     int spinnerPosition;
 
@@ -34,6 +34,7 @@ public class CourseDetails extends AppCompatActivity {
         addSubject = findViewById(R.id.subject);
         addStartTime = findViewById(R.id.addStartTime);
         addEndTime = findViewById(R.id.addEndTime);
+        addInstructor = findViewById(R.id.addInstructor);
 
         tabLayout.addTab(tabLayout.newTab().setText("Album"));
         tabLayout.addTab(tabLayout.newTab().setText("Notes"));
@@ -50,7 +51,7 @@ public class CourseDetails extends AppCompatActivity {
 
         // Update UI with the retrieved data
         TextView subjectTextView = findViewById(R.id.subject);
-        TextView instructorTextView = findViewById(R.id.Instructor);
+        TextView instructorTextView = findViewById(R.id.addInstructor);
         TextView startTimeTextView = findViewById(R.id.addStartTime);
         TextView endTimeTextView = findViewById(R.id.addEndTime);
 
@@ -64,6 +65,8 @@ public class CourseDetails extends AppCompatActivity {
             intent.putExtra("subject", addSubject.getText().toString());
             intent.putExtra("startTime", addStartTime.getText().toString());
             intent.putExtra("endTime", addEndTime.getText().toString());
+            intent.putExtra("instructor", addInstructor.getText().toString());
+
             startActivity(intent);
         });
 

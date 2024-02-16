@@ -152,19 +152,56 @@
                 android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardInstructor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardEndTime"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="100dp"
+        android:elevation="4dp">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/Instructor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="   INSTRUCTOR:"
+                android:textColor="#113946"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/addInstructor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:hint="Enter Instructor"
+                android:textSize="14sp"
+               />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <!-- Add to Timetable Button -->
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="169dp"
+        android:layout_height="57dp"
         android:layout_below="@id/cardEndTime"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="178dp"
-        android:layout_marginBottom="158dp"
-        android:background="#113946"
+        android:layout_marginBottom="149dp"
+        android:background="@drawable/buttonbg"
         android:text="SAVE"
         android:textColor="#CCC9A6" />
 
@@ -178,48 +215,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnAdd"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="-211dp"
-        android:layout_marginBottom="316dp"
-        android:orientation="horizontal"
-        android:padding="6dp">
 
-        <TextView
-            android:id="@+id/labelInstructor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:text="   INSTRUCTOR:"
-            android:textColor="#113946"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/addInstructor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:focusable="false"
-            android:hint="Enter Instructor"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@id/cardEndTime"
-        android:layout_marginTop="16dp"
-        android:background="#113946"
-        android:text="EDIT"
-        android:textColor="#CCC9A6"
-        android:visibility="gone" />
 
 </RelativeLayout>
