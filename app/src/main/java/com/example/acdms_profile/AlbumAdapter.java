@@ -1,8 +1,6 @@
 package com.example.acdms_profile;
 
 
-import static android.content.Intent.getIntent;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -31,12 +29,13 @@ import java.util.ArrayList;
 
 
 public class AlbumAdapter extends BaseAdapter {
+    private String courseId;
 
     private ArrayList<DataClass> dataList;
     private Context context;
-    private String courseId;
 
-    public AlbumAdapter(Context context, ArrayList<DataClass> dataList, String courseId) {
+
+    public AlbumAdapter(Context context, ArrayList<DataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
         this.courseId = courseId;
@@ -76,9 +75,13 @@ public class AlbumAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, FullImage.class);
+
                 intent.putExtra("imageUrl", item.getImageURL());
                 intent.putExtra("docId", item.getDocId());
                 intent.putExtra("courseId", courseId);
+
+                intent.putExtra("imageURL", item.getImageURL());
+
                 context.startActivity(intent);
             }
         });
@@ -118,10 +121,11 @@ public class AlbumAdapter extends BaseAdapter {
     }
 
     private void deleteItem(DataClass itemToDelete) {
-        // Delete item from Firestore
         FirebaseFirestore firestore = FirebaseFirestore.getInstance();
         CollectionReference collectionReference = firestore.collection("Album");
         String documentId = itemToDelete.getId(); // Assuming getId() returns the document ID
+
+        // Delete document from Firestore
         collectionReference.document(documentId).delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -136,11 +140,9 @@ public class AlbumAdapter extends BaseAdapter {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        // Handle failure
                         Toast.makeText(context, "Failed to delete item", Toast.LENGTH_SHORT).show();
                         Log.e("AlbumAdapter", "Error deleting item from Firestore", e);
                     }
                 });
     }
 }
-

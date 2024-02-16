@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/fullImageView"
-        android:layout_width="400dp"
-        android:layout_height="707dp"
-        android:background="@color/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorhint"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,20 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.287" />
-
-    <Button
-        android:id="@+id/deletepngbutton"
-        android:layout_width="48dp"
-        android:layout_height="53dp"
-        android:background="@drawable/delete"
-        android:backgroundTint="#1A5355"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952"
-        tools:ignore="SpeakableTextPresentCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

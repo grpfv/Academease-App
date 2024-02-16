@@ -20,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -30,7 +32,6 @@ public class AddtoAlbum extends AppCompatActivity {
     EditText uploadCaption;
     ProgressBar progressBar;
     private Uri imageUri;
-    final private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
     String courseId, docId;
 
     @Override
@@ -83,39 +84,27 @@ public class AddtoAlbum extends AppCompatActivity {
             }
         });
     }
-    //Outside onCreate
+
     private void uploadToFirebase(Uri uri) {
         String caption = uploadCaption.getText().toString();
-        final StorageReference imageReference = storageReference.child("Album/" + System.currentTimeMillis() + "." + getFileExtension(uri));
-        final CollectionReference forAlbum = Utility.getCollectionReferenceForAlbum(courseId); //test lang
 
-        imageReference.putFile(uri).addOnSuccessListener(taskSnapshot -> {
-                    imageReference.getDownloadUrl().addOnSuccessListener(uriResult -> {
-                        DataClass dataClass = new DataClass(uriResult.toString(), caption);
+        final CollectionReference forAlbum = Utility.getCollectionReferenceForAlbum(courseId);
 
-                        forAlbum.add(dataClass)
-                                .addOnSuccessListener(CollectionReference -> {
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(AddtoAlbum.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                                    //Intent intent = new Intent(AddtoAlbum.this, CourseDetails.class);
-                                    //startActivity(intent);
-                                    finish();
-                                })
-                                .addOnFailureListener(e -> {
-                                    progressBar.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(AddtoAlbum.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
-                                });
-                    });
-                }).addOnProgressListener(taskSnapshot -> progressBar.setVisibility(View.VISIBLE))
+        // Add the data directly to Firestore
+        DocumentReference newDocRef = forAlbum.document(); // Generate a new document reference
+        DataClass dataClass = new DataClass();
+        dataClass.setCaption(caption);
+        dataClass.setDocId(newDocRef.getId()); // Set the document ID
+
+        newDocRef.set(dataClass) // Set the document with the data
+                .addOnSuccessListener(aVoid -> {
+                    progressBar.setVisibility(View.INVISIBLE);
+                    Toast.makeText(AddtoAlbum.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                    finish();
+                })
                 .addOnFailureListener(e -> {
                     progressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(AddtoAlbum.this, "Failed to upload image", Toast.LENGTH_SHORT).show();
                 });
-    }
-
-    private String getFileExtension(Uri fileUri){
-        ContentResolver contentResolver = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(contentResolver.getType(fileUri));
     }
 }
