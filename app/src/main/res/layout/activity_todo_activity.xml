@@ -195,10 +195,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/cardDueTime"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="33dp"
         android:text="Remind Me Before"
-        android:textColor="@color/black"
-        android:textSize="17sp" />
+        android:textColor="@color/academease"
+        android:paddingLeft="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/Reminder"
@@ -213,11 +215,14 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_marginEnd="16dp"
+            android:outlineAmbientShadowColor="@color/academease"
             />
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
+            android:layout_gravity="top"
+            android:outlineAmbientShadowColor="@color/academease"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp">
 
@@ -226,6 +231,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Minutes"
+                android:textColor="@color/academease"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
@@ -233,6 +239,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hours"
+                android:textColor="@color/academease"
                 tools:ignore="TouchTargetSizeCheck" />
 
             <RadioButton
@@ -240,6 +247,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Days"
+                android:textColor="@color/academease"
                 tools:ignore="TouchTargetSizeCheck" />
         </RadioGroup>
     </LinearLayout>
@@ -270,9 +278,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EDIT"
-            android:backgroundTint="#113946"
+            android:background="@drawable/btnbg"
             android:visibility="gone"
-            android:textColor="#CCC9A6"/>
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnDelete"
@@ -280,9 +288,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="DELETE"
-            android:backgroundTint="#113946"
+            android:background="@drawable/btnbg"
             android:visibility="gone"
-            android:textColor="#CCC9A6"/>
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 
