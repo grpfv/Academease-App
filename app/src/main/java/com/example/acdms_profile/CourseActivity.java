@@ -1,7 +1,6 @@
 package com.example.acdms_profile;
 
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -54,10 +53,7 @@ public class CourseActivity extends DialogFragment {
         }
 
         if(isDeleteMode){
-            instrucCourse.setText("DELETE COURSE?");
-            instrucCourse.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28);
-            ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) instrucCourse.getLayoutParams();
-            layoutParams.topMargin = 15;
+            instrucCourse.setText("DETELE COURSE?");
             btnAdd.setVisibility(View.GONE);
             btnDelete.setVisibility(View.VISIBLE);
             btnDelete.setOnClickListener(v->deleteCourseToFirebase());
@@ -80,6 +76,7 @@ public class CourseActivity extends DialogFragment {
         String subject = enterSubject.getText().toString();
         String instructor = enterInstructor.getText().toString();
 
+
         if (subject.isEmpty()){
             Toast.makeText(requireContext(), "Please enter Subject", Toast.LENGTH_SHORT).show();
             enterSubject.setError("Subject Name is required");
@@ -94,6 +91,9 @@ public class CourseActivity extends DialogFragment {
         CourseModel course = new CourseModel();
         course.setSubject(subject);
         course.setInstructor(instructor);
+     /*   course.setendTime(endTime);
+        course.setstartTime(startTime);
+        course.setschedDay(schedDay);*/
         course.setTimestamp(Timestamp.now());
 
         saveCoursesToFirebase(course);

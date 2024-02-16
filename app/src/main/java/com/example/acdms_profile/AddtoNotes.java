@@ -45,8 +45,8 @@ public class AddtoNotes extends AppCompatActivity {
 
     EditText titleEditText, contentEditText;
     Button saveNoteBtn;
-    TextView pageTitleText, deleteNoteBtn;
-    ImageView micImageView, cameraImageView;
+    TextView pageTitleText;
+    ImageView micImageView, cameraImageView, deleteNoteBtn;
 
     TextRecognizer textRecognizer;
     Uri imageUri;
