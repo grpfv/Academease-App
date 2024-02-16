@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "996065650557",
-    "firebase_url": "https://academease-db-final-default-rtdb.firebaseio.com",
-    "project_id": "academease-db-final",
-    "storage_bucket": "academease-db-final.appspot.com"
+    "project_number": "236626811903",
+    "firebase_url": "https://academease-b824d-default-rtdb.firebaseio.com",
+    "project_id": "academease-b824d",
+    "storage_bucket": "academease-b824d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:996065650557:android:c618f767f32f90d1948e14",
+        "mobilesdk_app_id": "1:236626811903:android:c8fc0436bf27616d9525ca",
         "android_client_info": {
           "package_name": "com.example.acdms_profile"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA4fy3Gt2NafB3b06ed_mt5hots_gUsmvw"
+          "current_key": "AIzaSyCCswEoTk7Q-4BtBXBO0qy1o5-xItNf0Lg"
         }
       ],
       "services": {
