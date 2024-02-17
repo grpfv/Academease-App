@@ -103,9 +103,9 @@ public class CourseDetailsActivity extends AppCompatActivity {
     void saveScheduletoFirebase(SchedModel schedModel) {
         DocumentReference documentReference;
         if (isEditMode) {
-            documentReference = FirebaseFirestore.getInstance().collection("Schedules").document(schedId);
+            documentReference = FirebaseFirestore.getInstance().collection("Schedule").document(schedId);
         } else {
-            documentReference = FirebaseFirestore.getInstance().collection("Schedules").document();
+            documentReference = FirebaseFirestore.getInstance().collection("Schedule").document();
         }
 
         documentReference.set(schedModel).addOnCompleteListener(task -> {
