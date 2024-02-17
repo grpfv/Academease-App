@@ -100,7 +100,7 @@
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:layout_marginBottom="44dp"
-        android:background="@drawable/buttonbg"
+        android:background="@drawable/btnbg"
         android:fontFamily="sans-serif"
         android:gravity="center"
         android:text="@string/savenotebtt"
@@ -119,19 +119,17 @@
         android:layout_width="104dp"
         android:layout_height="51dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginTop="388dp"
+
         android:gravity="center"
         android:text="DELETE NOTE"
-        android:visibility="gone"
-
         android:textColor="#FF4646"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
 
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.794"
+        app:layout_constraintTop_toBottomOf="@+id/notes_title"
         app:srcCompat="@drawable/delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

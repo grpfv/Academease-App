@@ -94,7 +94,7 @@ public class AddtoAlbum extends AppCompatActivity {
 
                         forAlbum.add(dataClass)
                                 .addOnSuccessListener(CollectionReference -> {
-                                    progressBar.setVisibility(View.INVISIBLE);
+                                    progressBar.setVisibility(View.VISIBLE);
                                     Toast.makeText(AddtoAlbum.this, "Uploaded", Toast.LENGTH_SHORT).show();
                                     //Intent intent = new Intent(AddtoAlbum.this, CourseDetails.class);
                                     //startActivity(intent);

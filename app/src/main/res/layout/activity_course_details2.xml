@@ -7,11 +7,28 @@
     tools:context=".CourseDetailsActivity">
 
     <!-- Subject Name -->
+
+    <TextView
+        android:id="@+id/addTasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="-6dp"
+        android:gravity="center"
+        android:text="ADD TASK"
+        android:textColor="#113946"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+
         android:elevation="4dp"
         app:cardCornerRadius="100dp">
 
@@ -168,7 +185,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="6dp"
+            >
 
             <TextView
                 android:id="@+id/Instructor"
